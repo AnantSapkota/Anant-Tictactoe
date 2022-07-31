@@ -5,9 +5,7 @@ import javax.swing.*;
 
 class AnantTicTacToe extends JFrame implements  ActionListener{
 
-    int i,j,ii,jj,x,y,yesnull; 
-
-    // boundary for button
+    int i,j,ii,jj,x,y,yesnull;
     int a[][]={{10,1,2,3,11},{10,1,4,7,11},{10,1,5,9,11},{10,2,5,8,11},
                 {10,3,5,7,11},{10,3,6,9,11},{10,4,5,6,11},{10,7,8,9,11} };
      int a1[][]={{10,1,2,3,11},{10,1,4,7,11},{10,1,5,9,11},{10,2,5,8,11},
@@ -15,13 +13,13 @@ class AnantTicTacToe extends JFrame implements  ActionListener{
 				
       boolean state,type,set;
 
-      //store image
+      
       Icon pic1,pic2,icon,pic11,pic22;
       Checkbox c1,c2;
       JLabel l1,l2;
-      //clickable buttons
+      
       JButton b[]=new JButton[9];
-      //Replay button
+      
       JButton Replay;
 
       
@@ -38,14 +36,14 @@ public void showButton(){
     }
     b[i].setBounds(x,y,100,100);
     add(b[i]);
-    // add listener to every button
+    
     b[i].addActionListener(this);
 }
 
   Replay=new JButton("Replay");
   Replay.setBounds(100,350,100,50);
   add(Replay);
-  //add event listener for Replay button
+ 
   Replay.addActionListener(this);
 
 }
@@ -58,7 +56,7 @@ for(ii=0;ii<=7;ii++){
     }
 }
 
-//main constructor
+
 AnantTicTacToe(){
     super("tic tac toe by Anant");
     state=true;type=true;set=true;
@@ -71,16 +69,16 @@ AnantTicTacToe(){
     setSize(330,450);
     setVisible(true);
     showButton();
-    // cross click vayo vane exit
+    
     setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 }
 
 
-// button click huda k garne vanera define gareko
+
 public void actionPerformed(ActionEvent e){
 
 if(type==true){
-  //Replay button thicda sabai image remove garne
+  
 if(e.getSource()==Replay){
  for(i=0;i<=8;i++){
    b[i].setIcon(null);
@@ -110,7 +108,7 @@ else if(type==false){
         }
     }
 
-    // checking for winner
+    
 for(i=0;i<=7;i++){
   
   Icon icon1=b[(a[i][1]-1)].getIcon();
@@ -121,7 +119,7 @@ for(i=0;i<=7;i++){
                  b[(a[i][1]-1)].setIcon(pic11);
                  b[(a[i][2]-1)].setIcon(pic11); 
                  b[(a[i][3]-1)].setIcon(pic11);
-                 //display winner name
+                 
 	              JOptionPane.showMessageDialog(AnantTicTacToe.this,"!!!Player1 won!!! click Replay");	
   		           break;
            }
@@ -129,7 +127,7 @@ for(i=0;i<=7;i++){
              b[(a[i][1]-1)].setIcon(pic22);
              b[(a[i][2]-1)].setIcon(pic22);
              b[(a[i][3]-1)].setIcon(pic22); 
-             // display winner name
+             
                JOptionPane.showMessageDialog(AnantTicTacToe.this,"!!!Player2 won!!! click Replay");
                 break;			 
                }
@@ -137,7 +135,7 @@ for(i=0;i<=7;i++){
     }  
 }
 public static void main(String []args){
-  // call constructor
+  
     new AnantTicTacToe();
    }
 }
